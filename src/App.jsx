@@ -1,122 +1,186 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#eef3fb",
+        display: "flex",
+        justifyContent: "center",
+        padding: "30px",
+        fontFamily: "Segoe UI, sans-serif",
+      }}
+    >
+      <div
+        style={{
+          width: "1200px",
+          display: "grid",
+          gridTemplateColumns: "240px 1fr",
+          gap: "20px",
+        }}
+      >
+        {/* Sidebar */}
+        <div
+          style={{
+            background: "linear-gradient(180deg,#1e3a8a,#172554)",
+            color: "white",
+            borderRadius: "20px",
+            padding: "25px",
+          }}
         >
-          Count is {count}
-        </button>
-      </section>
+          <h2>☁️ Cloud Security Team</h2>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+          {[
+            "Dashboard",
+            "IAM",
+            "WAF Events",
+            "CloudTrail",
+            "Compliance",
+          ].map((item) => (
+            <div
+              key={item}
+              style={{
+                marginTop: "15px",
+                background: "rgba(255,255,255,0.15)",
+                padding: "15px",
+                borderRadius: "12px",
+                textAlign: "center",
+                fontWeight: "bold",
+              }}
+            >
+              {item}
+            </div>
+          ))}
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        {/* Main Content */}
+        <div>
+          <div
+            style={{
+              background: "white",
+              borderRadius: "20px",
+              padding: "25px",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+            }}
+          >
+            <h1
+              style={{
+                textAlign: "center",
+                marginBottom: "10px",
+              }}
+            >
+              Cloud Security Team Dashboard
+            </h1>
+
+            <p
+              style={{
+                textAlign: "center",
+                color: "#555",
+              }}
+            >
+              AWS Security Visibility • Threat Monitoring • Compliance
+            </p>
+
+            {/* Cards */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4,1fr)",
+                gap: "15px",
+                marginTop: "25px",
+              }}
+            >
+              {[
+                ["IAM Users", "124"],
+                ["WAF Events", "45"],
+                ["CloudTrail", "1,284"],
+                ["Alerts", "12"],
+              ].map(([title, value]) => (
+                <div
+                  key={title}
+                  style={{
+                    background: "#f8fafc",
+                    borderRadius: "15px",
+                    padding: "20px",
+                    textAlign: "center",
+                  }}
+                >
+                  <h3>{title}</h3>
+                  <h1 style={{ color: "#2563eb" }}>{value}</h1>
+                </div>
+              ))}
+            </div>
+
+            {/* Events */}
+            <div
+              style={{
+                marginTop: "25px",
+                background: "#f8fafc",
+                borderRadius: "15px",
+                padding: "20px",
+              }}
+            >
+              <h2>Recent Security Events</h2>
+
+              <table
+                style={{
+                  width: "100%",
+                  marginTop: "15px",
+                }}
+              >
+                <thead>
+                  <tr>
+                    <th>Severity</th>
+                    <th>Event</th>
+                    <th>Source</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td style={{ color: "red" }}>High</td>
+                    <td>XSS Attack</td>
+                    <td>Radware WAF</td>
+                    <td>Blocked</td>
+                  </tr>
+
+                  <tr>
+                    <td style={{ color: "orange" }}>Medium</td>
+                    <td>Failed AWS Login</td>
+                    <td>AWS IAM</td>
+                    <td>Investigating</td>
+                  </tr>
+
+                  <tr>
+                    <td style={{ color: "green" }}>Low</td>
+                    <td>CloudTrail Update</td>
+                    <td>CloudTrail</td>
+                    <td>Completed</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Security Score */}
+            <div
+              style={{
+                marginTop: "25px",
+                background: "#2563eb",
+                color: "white",
+                borderRadius: "20px",
+                padding: "25px",
+                textAlign: "center",
+              }}
+            >
+              <h2>Security Posture Score</h2>
+              <h1 style={{ fontSize: "60px" }}>92%</h1>
+              <p>Excellent Security Posture</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
